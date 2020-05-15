@@ -23,5 +23,5 @@ foreach($vm in $vms)
 		Write-Host ""
     $vm = '"' + $vm + '"'
     $arguments = 'startvm ' + $vm + ' --type headless'
-    start-process -NoNewWindow -Wait $VboxManage $arguments 
+    start-process -NoNewWindow $VboxManage $arguments 
 } 
