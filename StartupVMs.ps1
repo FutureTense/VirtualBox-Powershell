@@ -21,6 +21,7 @@ foreach($vm in $vms)
     Write-Host "Starting Virtual Machine: " -NoNewline 
     Write-Host $vm.ToUpper() -ForegroundColor Yellow
 		Write-Host ""
-    $arguments = "startvm " + $vm + " --type headless"
-    start-process $VboxManage $arguments 
+    $vm = '"' + $vm + '"'
+    $arguments = 'startvm ' + $vm + ' --type headless'
+    start-process -NoNewWindow -Wait $VboxManage $arguments 
 } 
