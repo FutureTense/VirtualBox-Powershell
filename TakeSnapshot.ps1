@@ -1,5 +1,6 @@
 ﻿Param([parameter(Position=0)]$virtual_machine="vm_name",
-      [parameter(Position=1)]$snapshot_name="")
+      [parameter(Position=1)]$snapshot_name="",
+      [parameter(Position=2)]$restart=1)
 
 [string]$VBoxManage="C:\Program Files\Oracle\VirtualBox\VBoxManage.exe"
 
@@ -32,13 +33,16 @@ Write-Host  $snapshot_name.ToUpper() -ForegroundColor Yellow
 & $VBoxManage snapshot $virtual_machine take $snapshot_name
 echo (-join('Snapshot: ',$snapshot_name))
 
-$arguments = "startvm " + $virtual_machine + " --type headless"
+if ($restart -ne 0)
+{
 
-Write-Host "Starting: " -NoNewline 
-Write-Host  $virtual_machine.ToUpper() -ForegroundColor Green
+    $arguments = "startvm " + $virtual_machine + " --type headless"
 
-& $VBoxManage startvm $virtual_machine --type headless
+    Write-Host "Starting: " -NoNewline 
+    Write-Host  $virtual_machine.ToUpper() -ForegroundColor Green
+
+    & $VBoxManage startvm $virtual_machine --type headless
 
 
-echo "finished"
-
+    echo "finished"
+}

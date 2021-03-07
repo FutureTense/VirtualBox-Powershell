@@ -45,16 +45,20 @@ switch ( $IFTT )
 {
     Reboot
     {
-       $PSscript = "D:\Dropbox\PowershellNUC\RebootNUC.ps1"
+       $PSscript = "D:\VirtualBox-Powershell\RebootNUC.ps1"
     }
     Shutdown
     {
-       $PSscript = "D:\Dropbox\PowershellNUC\ShutdownVbox.ps1"
+       $PSscript = "D:\VirtualBox-Powershell\ShutdownVbox.ps1"
+    }
+    'knock knock'
+    {
+       $PSscript = "D:\VirtualBox-Powershell\SnapshotNUCreboot.ps1"
     }
     Snapshot
     {
-       $PSscript = "D:\Dropbox\PowershellNUC\TakeSnapshot.ps1"
-       $PSarg =  "HomeAssistant"
+       $PSscript = "D:\VirtualBox-Powershell\TakeSnapshot.ps1"
+       $PSarg =  "noakland"
     }
     default 
     {
