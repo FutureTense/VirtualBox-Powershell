@@ -56,5 +56,5 @@ Write-Host  $virtual_machine.ToUpper() -ForegroundColor Green
 
 echo "finished"
 
-Write-Host -NoNewLine 'Press any key to exit.';
-$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
+# Write-Host -NoNewLine 'Press any key to exit.';
+# $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
